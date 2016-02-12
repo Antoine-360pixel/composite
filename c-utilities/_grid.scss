@@ -1,0 +1,61 @@
+/* https://github.com/Antoine-360pixel/sass-grid */
+
+$cols: 6;
+$grid_max_width: 1400px;
+$grid_gutter: 25px;
+
+$gutter: percentage($grid_gutter / $grid_max_width);
+
+@function columns($num){
+  @return ((100% - ($gutter * $cols + 2)) / $cols) * $num + ($gutter * ($num - 1));
+}
+
+@mixin row {
+  position: relative;
+  max-width: $grid_max_width;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  @include clearfix;
+}
+
+@mixin col($val) {
+  @if $val != $cols {
+    float: left;
+  } @else {
+    float: none;
+  }
+
+  position: relative;
+  width: columns($val);
+  min-height: 1;
+  margin: 0;
+  margin: $gutter $gutter $gutter 0;
+  box-sizing: border-box;
+
+  &:first-child {
+    margin-left: $gutter;
+  }
+
+  @if $val < $cols {
+    @include max-screen($medium_screen) {
+      float: none;
+      width: 100%;
+      margin: $gutter $gutter 0 $gutter;
+      
+      &:last-child {
+        margin-bottom: $gutter;
+      }
+    }
+  }
+}
+
+.c-fluid-row {
+  @include row;
+}
+
+@for $f from 1 through $cols {
+  .col-#{$f} {
+    @include col($f);
+  }
+}

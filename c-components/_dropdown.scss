@@ -1,0 +1,52 @@
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  z-index: map-get($c_zindex, dropdown);
+  top: $c_btn_height;
+  right: $c_btn_padding;
+  min-width: 200px;
+  margin: 2px 0 0;
+  padding: 2px 0;
+  list-style: none;
+  background-color: $white;
+  border: 1px solid transparentize($black, .85);
+  box-shadow: unquote(nth($shadow_depth, 2));
+  background-clip: padding-box;
+
+  li {
+    display: list-item;
+    position: relative;
+    text-align: -webkit-match-parent;
+
+    a:not(.btn),
+    p {
+      display: block;
+      height: 30px;
+      padding: 0 20px;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 30px;
+      white-space: nowrap;
+      text-decoration: none;
+      color: #333;
+      clear: both;
+
+      &:hover,
+      &:focus {
+        color: $black;
+        background: $grey_thin;
+        cursor: pointer;
+        outline: none;
+      }
+
+      &:active {
+        background: darken($grey_thin, 10);
+        cursor: pointer;
+      }
+
+      [class^="icon-"] {
+        margin-right: 8px;
+      }
+    }
+  }
+}

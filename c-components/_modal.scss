@@ -1,0 +1,52 @@
+.#{$c_prefix}modal {
+  position: relative;
+  z-index: map-get($c_zindex, modal);
+  width: 50%;
+  width: 50vw;
+  margin: auto;
+  padding: $modal_padding;
+  background: $white;
+  border-radius: $radius_modal;
+  box-shadow: unquote(nth($shadow_depth, 5));
+  animation: fadeInDown .5s both $bezier;
+
+  &.#{$c_prefix}modal-close {
+    animation-direction: reverse;
+  }
+
+  @include max-screen($large_screen) {
+    width: 70%;
+    width: 70vw;
+  }
+
+  @include max-screen($medium_screen) {
+    width: 80%;
+    width: 80vw;
+  }
+}
+
+.modal-header,
+.modal-footer {
+  position: relative;
+  width: 100%;
+  height: $modal_head_height;
+  padding: 5px 0;
+}
+
+.modal-footer {
+  margin-top: 16px;
+  margin-bottom: -13px;
+
+  button,
+  .btn {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  height: calc(100% - #{$modal_head_height * 2});
+  @include clearfix;
+}

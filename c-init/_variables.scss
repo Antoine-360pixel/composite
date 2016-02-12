@@ -1,0 +1,75 @@
+/*! Composite.scss v0.0.1 variables | MIT License */
+
+// Composite prefix
+$c_prefix: 'c-' !default;
+
+// Composite colors
+$black: #000000;
+$white: #ffffff;
+
+$primary_color: #009688 !default;
+$accent_color: #00BCD4 !default;
+
+$light_primary_color    : lighten($primary_color, 5%);
+$dark_primary_color     : darken($primary_color, 5%);
+
+$dark_accent_color      : darken($accent_color, 12%);
+$light_accent_color     : lighten($accent_color, 12%);
+$thin_accent_color      : lighten($accent_color, 22%);
+
+$primary_text_color     : lighten($black, 20%);
+$secondary_text_color   : lighten($black, 46%);
+$negative_text_color    : lighten($black, 100%);
+
+$disabled_color         : lighten($black, 74%);
+$divider_color          : lighten($black, 88%);
+$icon_color             : lighten($black, 100%);
+
+// Composite basics
+$info: #03A9F4;
+$valid: #4cAf50;
+$warning: #FF5722;
+$error: #f44336;
+
+// Composite helper class init
+$disabled_helpers_class: (
+  'disabled': $disabled_color,
+  'divider': transparent
+) !default;
+
+$text_colors_helpers_class: (
+  success  : $valid,
+  info     : $info,
+  warning  : $warning,
+  error    : $error
+) !default;
+
+// Composite z-index !global init
+$c_zindex: (
+  header  : 10,
+  footer  : 10,
+  content : 1,
+  dropdown: 500,
+  tooltip : 500,
+  alert   : 1000,
+  modal   : 2000
+) !default;
+
+// Composite bezier animation
+$bezier: cubic-bezier(.15, .75, .15, 1) !default;
+
+// Composite Screens breakpoints
+$large_screen: 1200px !default;
+$medium_screen: 992px !default;
+$small_screen: 768px !default;
+
+// Composite Grid Settings
+$row_max_width  : 1720px !default;
+$gutter_width   : 20px !default;
+$cols           : 6 !default;
+
+// Composite modal
+$radius_modal: 0;
+$modal_dialog_width: 500px !default;
+$modal_head_height: 48px !default;
+$modal_padding: 25px !default;

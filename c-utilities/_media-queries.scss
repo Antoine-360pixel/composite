@@ -1,0 +1,19 @@
+// composite media-queries
+@mixin c-mq ($type, $value) {
+  @media only screen and (#{$type}-width: #{$value}) {
+    @content;
+  }
+}
+
+// Mixins
+@mixin max-screen($value) {
+  @include c-mq(max, $value) {
+    @content;
+  }
+}
+
+@mixin min-screen($value) {
+  @include c-mq(min, $value) {
+    @content;
+  }
+}

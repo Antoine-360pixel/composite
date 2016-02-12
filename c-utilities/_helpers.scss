@@ -1,0 +1,56 @@
+/*! Composite.scss v0.0.1 light helpers | MIT License */
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.#{$c_prefix}clearfix {
+  @include clearfix;
+}
+
+.#{$c_prefix}ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.#{$c_prefix}hidden {
+  visibility: hidden;
+}
+
+@each $class, $var in $disabled_helpers_class {
+  .#{$c_prefix}#{$class},
+  .#{$c_prefix}#{$class} a,
+  .#{$c_prefix}#{$class}:hover,
+  .#{$c_prefix}#{$class} a:hover,
+  .#{$c_prefix}#{$class}:active,
+  .#{$c_prefix}#{$class} a:active {
+    @if $class == divider {
+      color: $secondary_text_color;
+      padding: 0 20px;
+      background-color: $var;
+    } @else {
+      color: $var !important;
+      pointer-events: none;
+      background: none !important;
+    }
+    box-shadow: none;
+    cursor: inherit;
+    user-select: none;
+  }
+}
+
+@each $helper_class_name, $helper_class_val in $text_colors_helpers_class {
+  .#{$c_prefix}text-#{$helper_class_name} {
+    color: $helper_class_val !important;
+  }
+
+  .#{$c_prefix}bg-#{$helper_class_name} {
+    margin-bottom: 5px;
+    padding: 15px;
+    background-color: transparentize($helper_class_val, .8);
+  }
+}
